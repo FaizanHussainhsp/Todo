@@ -19,7 +19,8 @@
 .datadiv {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
 
 .Input {
   font-size: 20px;
@@ -79,3 +80,41 @@ img {
 
 .list {
   margin-right: 10px; }
+
+.InputSublist {
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none; }
+
+.addbtnSublist {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, orangered, gray);
+  padding: 5px 20px; }
+
+.insertlistBox {
+  margin-top: 10px;
+  margin-left: 100px; }
+
+.setSpanData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px; }
+
+.staticText {
+  display: block; }
+
+.start {
+  display: none; }
+
+.end {
+  display: none; }
+
+.datadiv {
+  padding: 15px 0; }
+
+.GetBox {
+  text-align: center; }

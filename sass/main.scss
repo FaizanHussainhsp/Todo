@@ -24,6 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .Input {
@@ -95,4 +96,52 @@ img {
 
 .list {
   margin-right: 10px;
+}
+////////////////////////////////Sublist Style
+///
+.InputSublist {
+  padding: 5px 20px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+.addbtnSublist {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  background-image: linear-gradient(to right, orangered, gray);
+  padding: 5px 20px;
+}
+
+.insertlistBox {
+  margin-top: 10px;
+  margin-left: 100px;
+}
+
+//////////////////////////////set span data
+
+.setSpanData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 100px;
+}
+///////////////////////////////static text
+.staticText {
+  display: block;
+}
+.start {
+  display: none;
+}
+
+.end {
+  display: none;
+}
+
+.datadiv {
+  padding: 15px 0;
+}
+
+.GetBox {
+  text-align: center;
 }
