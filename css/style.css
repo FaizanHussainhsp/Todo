@@ -104,17 +104,11 @@ img {
   align-items: center;
   margin-left: 100px; }
 
-.staticText {
-  display: block; }
-
-.start {
-  display: none; }
-
-.end {
-  display: none; }
-
 .datadiv {
   padding: 15px 0; }
 
 .GetBox {
   text-align: center; }
+
+.firstIndex {
+  margin-top: 10px; }

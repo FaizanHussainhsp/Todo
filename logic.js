@@ -1,5 +1,8 @@
 ///////////////////////DOM ACCESS
-let data = [];
+let data = [
+  { ObjectPro: "goHome", list: [] },
+  { ObjectPro: "goOffice", list: [] },
+];
 const inputField = document.querySelector(".Input");
 const addBtn = document.querySelector(".addbtn");
 const list = document.querySelector(".list");
@@ -21,28 +24,31 @@ let end = document.querySelector(".end");
 const addFunction = (e) => {
   const ObjectPro = inputField.value;
   if (inputField.value) {
+    // start.style.display = "block";
+    // end.style.display = "block";
     ////////////////////////simple insertion/////////////////test
-    data.push({ ObjectPro: ObjectPro.replace(/ /g, ""), list: [] });
+    data.splice(1, 0, {
+      ObjectPro: ObjectPro.replace(/ /g, ""),
+      list: [],
+    });
 
     UI();
     inputField.value = "";
   }
   ///////////////////////Style STATIC TEXT
-  start.style.display = "block";
-  end.style.display = "block";
+  ////////////////////// Style is placed here before
   printArrayData = document.querySelector(".printArrayData");
 };
 //////////////////////////Delete Main Object Function
 function deleteFunction(value, index) {
-  console.log("+++++++Chekc+++++++++", value, index);
   const delnode = document.getElementById(`${index}`);
   delnode.remove();
   const delItem = data.filter((data) => data.ObjectPro !== value);
   data = delItem;
   if (data.length === 0) {
     ///////////////////////Style STATIC TEXT
-    start.style.display = "none";
-    end.style.display = "none";
+    // start.style.display = "none";
+    // end.style.display = "none";
   }
 }
 ////////////////////////Edit Function
@@ -52,12 +58,11 @@ function edit(holdValue, holdIndex, obj, mainpoint) {
 
   for (const item of parentNOde) {
     if (item.className === "setSpanData" && item.id == holdIndex) {
-      console.log(item);
       holdelement = item;
     }
     if (item.id == `insertlistBox${mainpoint}`) {
-      console.log(item);
       //  InputSublist.value = item;
+
       let inputParent = item.children;
       for (const item of inputParent) {
         if (item.className === `InputSublist${mainpoint}`) {
@@ -91,7 +96,6 @@ function upDateData(pickDomObjeect) {
 
       for (const item of parentObject) {
         if (item.className === "setSpanData" && item.id === `${holdindex}`) {
-          console.log(item);
           selectedParentList = item.children;
           // let pickFChild = item.firstChild;
 
@@ -118,17 +122,19 @@ function addDataInObject(catchObject, index) {
   );
 
   InputSublist = document.querySelector(`.InputSublist${index}`);
+
   for (const item of data) {
     if (item.ObjectPro === catchObject) {
       if (InputSublist.value === "") {
+        setspan(item.list, item.ObjectPro, index);
         return;
       }
       {
-        console.log(InputSublist);
         item.list.push(InputSublist.value);
         InputSublist.value = "";
-        setspan(item.list, item.ObjectPro, index);
       }
+      console.log("calling point ");
+      setspan(item.list, item.ObjectPro, index);
     }
   }
 }
@@ -139,41 +145,41 @@ Updatedata.addEventListener("click", upDateData);
 
 /////////////////////////UI Update
 function UI() {
+  start.innerHTML = "";
+
   let html;
 
   data.forEach((value, index) => {
     html = `<div class="datadiv" id="hello${index}">
         <div class="ObjectRepresentation${value.ObjectPro}" id="data">
           <span class="list" id="h${index}">${value.ObjectPro}</span>
-
           <button
             class="delete"
             onclick="deleteFunction('${value.ObjectPro}','hello${index}')"
-          >
-            <img src="img/delete.png" alt="" />
+          ><img src="img/delete.png" alt="" />
           </button>
-         
         </div>
-      
         <div class="insertlistBox" id="insertlistBox${index}">
           <input type="text" class="InputSublist${index}" />
           <button class="addbtnSublist"  onclick="addDataInObject('${value.ObjectPro}','${index}')">Insert</button>
           <button class="addbtnSublist" onclick="upDateData('${index}')">
-   Update
- </button>;
+          Update
+          </button>
           </div>
-      </div>
-      
-      `;
-  });
+           </div>`;
 
-  start.insertAdjacentHTML("afterend", html);
+    start.insertAdjacentHTML("beforeend", html);
+    addDataInObject(value.ObjectPro, index);
+  });
 }
 ///////////////////////////////child list UI
 function setspan(value, objName, mainpoint) {
+  console.log("control is reached");
   let html;
   value.forEach((value, index) => {
-    html = `
+    console.log("check points=====================", value, index);
+    html =
+      `
     <div class="setSpanData" id="${index}">
     <span class="printArrayData${index}" id="${index}e">${value}</span>
      <button
@@ -188,18 +194,17 @@ function setspan(value, objName, mainpoint) {
            >
              <img src="img/update.png" alt="" />
            </button> 
-          </div>`;
+          </div>` ?? "";
   });
-  console.log("========checkPoint========", html);
-  ObjectRepresentation.insertAdjacentHTML("afterend", html);
+
+  ObjectRepresentation.insertAdjacentHTML("afterend", html ?? "");
 }
 //////////////////////////////del obj list item
 function delSpanItem(value, index, objName, mainpoint) {
-  console.log("indexed value", index, "main point ", mainpoint);
   // let cIndex = 1 + Number(index);
 
   let parentNode = document.getElementById(`hello${mainpoint}`).children;
-  console.log(parentNode);
+
   let deletedBox;
   let deletedText;
   for (const item of parentNode) {
@@ -217,8 +222,6 @@ function delSpanItem(value, index, objName, mainpoint) {
 
   data.forEach((checkobj) => {
     if (checkobj.ObjectPro === objName) {
-      console.log("==========Condition is satisfied==============");
-
       const copyArray = checkobj.list;
       const filterData = copyArray.filter((data) => data !== deletedText);
       checkobj.list = filterData;
