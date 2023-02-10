@@ -126,8 +126,8 @@ function addDataInObject(catchObject, index) {
   for (const item of data) {
     if (item.ObjectPro === catchObject) {
       if (InputSublist.value === "") {
-        return;
         setspan(item.list, item.ObjectPro, index);
+        return;
       }
       {
         item.list.push(InputSublist.value);
