@@ -123,18 +123,30 @@ function addDataInObject(catchObject, index) {
 
   InputSublist = document.querySelector(`.InputSublist${index}`);
 
+  const datasls = document.getElementById(`hello${index}`).children;
+
+  for (const item of datasls) {
+    console.log("chekc", item);
+  }
+
+  // for (const item of data) {
+  //   if (item.id === `${count}`) {
+  //     console.log("remove element", item);
+  //     item.remove();
+  //   }
+  //   count++;
+  // }
+
   for (const item of data) {
     if (item.ObjectPro === catchObject) {
+      console.log("text", item.list);
       if (InputSublist.value === "") {
-        setspan(item.list, item.ObjectPro, index);
         return;
-      }
-      {
+      } else {
         item.list.push(InputSublist.value);
+        setspan(item.list, item.ObjectPro, index);
         InputSublist.value = "";
       }
-      console.log("calling point ");
-      setspan(item.list, item.ObjectPro, index);
     }
   }
 }
@@ -170,16 +182,15 @@ function UI() {
 
     start.insertAdjacentHTML("beforeend", html);
     addDataInObject(value.ObjectPro, index);
+    displayInstant(value.list, value.ObjectPro, index);
   });
 }
 ///////////////////////////////child list UI
-function setspan(value, objName, mainpoint) {
-  console.log("control is reached");
+
+function displayInstant(value, objName, mainpoint) {
   let html;
   value.forEach((value, index) => {
-    console.log("check points=====================", value, index);
-    html =
-      `
+    html = `
     <div class="setSpanData" id="${index}">
     <span class="printArrayData${index}" id="${index}e">${value}</span>
      <button
@@ -193,10 +204,44 @@ function setspan(value, objName, mainpoint) {
            onclick="edit('${value}','${index}','${objName}','${mainpoint}')"
            >
              <img src="img/update.png" alt="" />
-           </button> 
-          </div>` ?? "";
+           </button>
+          </div>`;
+    ObjectRepresentation.insertAdjacentHTML("afterend", html ?? "");
   });
+}
 
+function setspan(value, objName, mainpoint) {
+  // for (let index = 0; index < data.length - 1; index++) {
+  //     if(data[index].id===`${}`)
+  // }
+  // let count = 0;
+  // for (const item of data) {
+  //   if (item.className == "setSpanData" && item.id === `${count++}`) {
+  //     item.remove();
+  //   } else {
+  //     console.log("problems");
+  //   }
+  // }
+
+  let html;
+  value.forEach((value, index) => {
+    html = `
+    <div class="setSpanData" id="${index}">
+    <span class="printArrayData${index}" id="${index}e">${value}</span>
+     <button
+            class="delete"
+            onclick="delSpanItem('${value}','${index}','${objName}','${mainpoint}')"
+          >
+            <img src="img/delete.png" alt="" />
+          </button>
+            <button
+             class="Update"
+           onclick="edit('${value}','${index}','${objName}','${mainpoint}')"
+           >
+             <img src="img/update.png" alt="" />
+           </button>
+          </div>`;
+  });
   ObjectRepresentation.insertAdjacentHTML("afterend", html ?? "");
 }
 //////////////////////////////del obj list item
