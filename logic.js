@@ -19,15 +19,16 @@ let start = document.querySelector(".start");
 let end = document.querySelector(".end");
 
 ////////////////////test
-
+let counter = 0;
 //////////////////Insert Function
 const addFunction = (e) => {
+  counter++;
   const ObjectPro = inputField.value;
   if (inputField.value) {
     // start.style.display = "block";
     // end.style.display = "block";
     ////////////////////////simple insertion/////////////////test
-    data.splice(1, 0, {
+    data.splice(counter, 0, {
       ObjectPro: ObjectPro.replace(/ /g, ""),
       list: [],
     });
