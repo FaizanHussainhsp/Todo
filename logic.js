@@ -17,24 +17,42 @@ let dataDiv;
 let printArrayData;
 let start = document.querySelector(".start");
 let end = document.querySelector(".end");
+let errorchecker = document.querySelector(".errorchecker");
 
 ////////////////////test
 let counter = 0;
+let matchedName = false;
 //////////////////Insert Function
 const addFunction = (e) => {
-  counter++;
   const ObjectPro = inputField.value;
   if (inputField.value) {
     // start.style.display = "block";
     // end.style.display = "block";
     ////////////////////////simple insertion/////////////////test
-    data.splice(counter, 0, {
-      ObjectPro: ObjectPro.replace(/ /g, ""),
-      list: [],
-    });
+    for (const item of data) {
+      if (item.ObjectPro === inputField.value) {
+        console.log("matched");
+        matchedName = true;
+      }
+    }
 
-    UI();
-    inputField.value = "";
+    if (matchedName) {
+      console.log("Same object is not allowed");
+      errorchecker.textContent = "Same object is not allowed";
+      errorchecker.style.color = "red";
+      matchedName = false;
+    } else {
+      errorchecker.textContent = "";
+      errorchecker.style.color = "red";
+      counter++;
+      data.splice(counter, 0, {
+        ObjectPro: ObjectPro.replace(/ /g, ""),
+        list: [],
+      });
+
+      UI();
+      inputField.value = "";
+    }
   }
   ///////////////////////Style STATIC TEXT
   ////////////////////// Style is placed here before
@@ -127,7 +145,6 @@ function addDataInObject(catchObject, index) {
   const datasls = document.getElementById(`hello${index}`).children;
 
   for (const item of datasls) {
-    console.log("chekc", item);
   }
 
   // for (const item of data) {
@@ -140,7 +157,6 @@ function addDataInObject(catchObject, index) {
 
   for (const item of data) {
     if (item.ObjectPro === catchObject) {
-      console.log("text", item.list);
       if (InputSublist.value === "") {
         return;
       } else {
