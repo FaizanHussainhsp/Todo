@@ -10,6 +10,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 }
 .GetBox {
   min-height: 400px;
@@ -36,6 +37,7 @@ body {
   padding: 15px 20px;
   outline: none;
   border: none;
+  position: relative;
 }
 .addbtn {
   font-size: 20px;
@@ -154,5 +156,7 @@ img {
 }
 
 .errorchecker {
-  // display: none;
+  position: absolute;
+  top: 140px;
+  left: 120px;
 }
