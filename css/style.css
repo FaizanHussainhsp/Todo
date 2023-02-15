@@ -1,3 +1,6 @@
+body {
+  background-color: #000000; }
+
 .mainIput {
   height: 200px;
   width: 600px;
@@ -32,13 +35,12 @@
 .addbtn {
   font-size: 20px;
   margin-left: 10px;
-  outline: none;
+  outline: 1px solid green;
   border: none;
-  background-image: linear-gradient(to bottom right, orange, green);
   border-radius: 10px;
   padding: 15px 20px;
   cursor: pointer;
-  transition: all 0.2s; }
+  transition: all 0.1s; }
   .addbtn:hover {
     transform: translateY(-1px); }
   .addbtn:active {
@@ -49,7 +51,7 @@
   margin-left: 10px;
   outline: none;
   border: none;
-  background-image: linear-gradient(to bottom right, blue, aqua);
+  outline: 1px solid green;
   border-radius: 10px;
   padding: 15px 20px;
   cursor: pointer;
