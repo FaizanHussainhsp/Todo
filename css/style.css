@@ -13,7 +13,7 @@ body {
   position: relative; }
 
 .GetBox {
-  min-height: 400px;
+  min-height: 40px;
   width: 600px;
   background-color: #eeeeee;
   margin: 20px auto;
