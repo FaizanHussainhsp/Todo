@@ -64,6 +64,7 @@ function deleteFunction(value, index) {
   delnode.remove();
   const delItem = data.filter((data) => data.ObjectPro !== value);
   data = delItem;
+  counter--;
   if (data.length === 0) {
     ///////////////////////Style STATIC TEXT
     // start.style.display = "none";
