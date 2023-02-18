@@ -1,5 +1,6 @@
 body {
-  background-color: #000000; }
+  background-color: #000000;
+}
 
 .mainIput {
   height: 200px;
@@ -10,7 +11,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; }
+  position: relative;
+}
 
 .GetBox {
   min-height: 40px;
@@ -18,13 +20,15 @@ body {
   background-color: #eeeeee;
   margin: 20px auto;
   border-radius: 10px;
-  padding: 10px; }
+  padding: 10px;
+}
 
 .datadiv {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; }
+  flex-direction: column;
+}
 
 .Input {
   font-size: 20px;
@@ -32,7 +36,8 @@ body {
   padding: 15px 20px;
   outline: none;
   border: none;
-  position: relative; }
+  position: relative;
+}
 
 .addbtn {
   font-size: 20px;
@@ -42,10 +47,12 @@ body {
   border-radius: 10px;
   padding: 15px 20px;
   cursor: pointer;
-  transition: all 0.1s; }
-  .addbtn:hover {
-    background-color: #5e5e09;
-    color: white; }
+  transition: all 0.1s;
+}
+.addbtn:hover {
+  background-color: #5e5e09;
+  color: white;
+}
 
 .Updatedata {
   font-size: 20px;
@@ -56,16 +63,20 @@ body {
   border-radius: 10px;
   padding: 15px 20px;
   cursor: pointer;
-  transition: all 0.2s; }
-  .Updatedata:hover {
-    transform: translateY(-1px); }
-  .Updatedata:active {
-    transform: translateY(0.5px); }
+  transition: all 0.2s;
+}
+.Updatedata:hover {
+  transform: translateY(-1px);
+}
+.Updatedata:active {
+  transform: translateY(0.5px);
+}
 
 img {
   height: 25px;
   width: 25px;
-  margin: 1px; }
+  margin: 1px;
+}
 
 .Update,
 .delete {
@@ -73,58 +84,72 @@ img {
   border: none;
   outline: none;
   cursor: pointer;
-  transition: all 0.2s; }
-  .Update:hover,
-  .delete:hover {
-    transform: translateY(-1px); }
-  .Update:active,
-  .delete:active {
-    transform: translateY(0.5px); }
+  transition: all 0.2s;
+}
+.Update:hover,
+.delete:hover {
+  transform: translateY(-1px);
+}
+.Update:active,
+.delete:active {
+  transform: translateY(0.5px);
+}
 
 .list {
-  margin-right: 10px; }
+  margin-right: 10px;
+}
 
 .InputSublist {
   padding: 5px 20px;
   border-radius: 5px;
   border: none;
-  outline: none; }
+  outline: none;
+}
 
 .addbtnSublist {
   border: none;
   outline: 1px solid orange;
   border-radius: 10px;
   padding: 5px 20px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .addbtnSublist:hover {
   background-color: orange;
-  color: white; }
+  color: white;
+}
 
 .insertlistBox {
   margin-top: 10px;
-  margin-left: 100px; }
+  margin-left: 100px;
+}
 
 .setSpanData {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 100px; }
+  margin-left: 100px;
+}
 
 .datadiv {
-  padding: 15px 0; }
+  padding: 15px 0;
+}
 
 .GetBox {
-  text-align: center; }
+  text-align: center;
+}
 
 .firstIndex {
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
 .errorchecker {
   position: absolute;
   top: 140px;
-  left: 120px; }
+  left: 120px;
+}
 
 .secondryHeading {
   text-align: center;
-  color: #ffffff; }
+  color: #ffffff;
+}
